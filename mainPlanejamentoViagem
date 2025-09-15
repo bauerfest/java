@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("s valores de custo devem ser >= 0");
+        System.out.print("Informe os custos e o orcamento maximo:  " );
+
+        System.out.print("Transporte: ");
+        double transporte = sc.nextDouble();
+
+        System.out.print("Alimentação: ");
+        double alimentacao = sc.nextDouble();
+
+        System.out.print("Hospedagem: ");
+        double hospedagem = sc.nextDouble();
+
+        System.out.print("Passeios: ");
+
+        double passeios = sc.nextDouble();
+
+        System.out.print("Orçamento máximo: ");
+        double orcamentoMaximo = sc.nextDouble();
+
+        double custoTotal = transporte + alimentacao + hospedagem + passeios;
+
+        System.out.println("Custo total: " + custoTotal);
+        if (custoTotal <= orcamentoMaximo) {
+            System.out.println("Dentro do orcamento");
+        }else{
+                System.out.println("Fora do orcamento");
+
+                System.out.println("--- Resumo ---");
+                System.out.println("Transporte: " + transporte);
+                System.out.println("Hospedagem: " + hospedagem);
+                System.out.println("Alimentação: " + alimentacao);
+                System.out.println("Passeios: " + passeios);
+                System.out.println("Orçamento máximo: " + orcamentoMaximo);
+
+                double maior = transporte;
+                String itemMaior = "Transporte";
+                double menor = transporte;
+                String itemMenor = "Transporte";
+
+                if (hospedagem > maior) { maior = hospedagem; itemMaior = "Hospedagem"; }
+                if (alimentacao > maior) { maior = alimentacao; itemMaior = "Alimentação"; }
+                if (passeios > maior) { maior = passeios; itemMaior = "Passeios"; }
+
+                if (hospedagem < menor) { menor = hospedagem; itemMenor = "Hospedagem"; }
+                if (alimentacao < menor) { menor = alimentacao; itemMenor = "Alimentação"; }
+                if (passeios < menor) { menor = passeios; itemMenor = "Passeios"; }
+
+                System.out.println("\nItem mais caro: " + itemMaior + " = " + maior);
+                System.out.println("Item mais barato: " + itemMenor + " = " + menor);
+                if (custoTotal > orcamentoMaximo && custoTotal <= orcamentoMaximo * 1.10) {
+                    System.out.println("Quase dentro do orçamento");
+                }
+                if ( custoTotal <= orcamentoMaximo * 0.80) {
+                    System.out.println("Sobra confortável");
+                }
+
+                sc.close();
+            }
+        }
+
+            }
